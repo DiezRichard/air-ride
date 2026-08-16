@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  background-color: slategrey;
+}
+
+body {
+  user-select: none;       /* Evita selección en navegadores modernos */
+  -webkit-user-select: none; /* Para Chrome, Safari */
+  -moz-user-select: none;    /* Para Firefox */
+  -ms-user-select: none;     /* Para IE/Edge */
+}
+
+
+#canvasDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+
+#myCanvas {
+  width:100vh;
+  height:100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border: none;
+  margin:0;
+  padding:0;
+  touch-action: none;              /* estándar */
+  -ms-touch-action: none;          /* IE/Edge legacy */
+  -webkit-user-select: none;       /* evita selección */
+  -webkit-touch-callout: none;     /* evita menú contextual */
+  
+}
+/*-----------------------*/
+
+#joystick-left {
+  position: absolute;
+  bottom: 20px;
+  width: 120px;
+  height: 120px;
+  
+  
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.joystick-base {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.joystick-stick {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s;
+}
+/*-----------------------*/
+
+
+/* Landscape */
+@media (orientation: landscape) {
+  #myCanvas {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px; /* centrar */
+  border: 5px solid rgba(0,0,0,0.1);
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 9999;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
